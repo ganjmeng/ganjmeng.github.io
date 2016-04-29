@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-29T06:53:34.000Z</updated>
+  <updated>2016-04-29T09:47:53.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,15 @@
     <link href="http://yoursite.com/2016/04/29/untitled-1461912646136/"/>
     <id>http://yoursite.com/2016/04/29/untitled-1461912646136/</id>
     <published>2016-04-29T06:50:46.000Z</published>
-    <updated>2016-04-29T06:53:34.000Z</updated>
+    <updated>2016-04-29T09:47:53.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;我的第一篇文章&quot;&gt;&lt;a href=&quot;#我的第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;我的第一篇文章&quot;&gt;&lt;/a&gt;我的第一篇文章&lt;/h1&gt;&lt;h3 id=&quot;Hey-hexo-真的很强大&quot;&gt;&lt;a href=&quot;#Hey-hexo-真的很强大&quot; class=&quot;headerlink&quot; title=&quot;Hey hexo 真的很强大&quot;&gt;&lt;/a&gt;Hey hexo 真的很强大&lt;/h3&gt;&lt;h1 id=&quot;hexo-hey&quot;&gt;&lt;a href=&quot;#hexo-hey&quot; class=&quot;headerlink&quot; title=&quot;hexo-hey&quot;&gt;&lt;/a&gt;hexo-hey&lt;/h1&gt;&lt;p&gt;an admin plugin for hexo, support hexo v3.x&lt;br&gt;built with gulp + babel + webpack&lt;br&gt;using es6 + angular + materail + jwt&lt;/p&gt;
+    <content type="html">&lt;p&gt;title: 标签测试文章&lt;br&gt;tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Testing&lt;/li&gt;
+&lt;li&gt;Another Tag&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;我的第一篇文章&quot;&gt;&lt;a href=&quot;#我的第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;我的第一篇文章&quot;&gt;&lt;/a&gt;我的第一篇文章&lt;/h1&gt;&lt;h3 id=&quot;Hey-hexo-真的很强大&quot;&gt;&lt;a href=&quot;#Hey-hexo-真的很强大&quot; class=&quot;headerlink&quot; title=&quot;Hey hexo 真的很强大&quot;&gt;&lt;/a&gt;Hey hexo 真的很强大&lt;/h3&gt;&lt;h1 id=&quot;hexo-hey&quot;&gt;&lt;a href=&quot;#hexo-hey&quot; class=&quot;headerlink&quot; title=&quot;hexo-hey&quot;&gt;&lt;/a&gt;hexo-hey&lt;/h1&gt;&lt;p&gt;an admin plugin for hexo, support hexo v3.x&lt;br&gt;built with gulp + babel + webpack&lt;br&gt;using es6 + angular + materail + jwt&lt;/p&gt;
 &lt;h2 id=&quot;Demo&quot;&gt;&lt;a href=&quot;#Demo&quot; class=&quot;headerlink&quot; title=&quot;Demo&quot;&gt;&lt;/a&gt;Demo&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://nihgwu.github.io/hexo-hey/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://nihgwu.github.io/hexo-hey/&lt;/a&gt;&lt;br&gt;username: hexo&lt;br&gt;passowrd: hey  &lt;/p&gt;
 &lt;h2 id=&quot;Screenshots&quot;&gt;&lt;a href=&quot;#Screenshots&quot; class=&quot;headerlink&quot; title=&quot;Screenshots&quot;&gt;&lt;/a&gt;Screenshots&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;./screenshot/1.jpg&quot; alt=&quot;desktop&quot;&gt;&lt;br&gt;&lt;img src=&quot;./screenshot/2.jpg&quot; alt=&quot;mobile&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot; title=&quot;About&quot;&gt;&lt;/a&gt;About&lt;/h2&gt;&lt;ul&gt;
@@ -42,10 +48,20 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;我的第一篇文章&quot;&gt;&lt;a href=&quot;#我的第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;我的第一篇文章&quot;&gt;&lt;/a&gt;我的第一篇文章&lt;/h1&gt;&lt;h3 id=&quot;Hey-hexo-真的很强大&quot;&gt;&lt;a href=&quot;#Hey-hexo-真的很强大&quot; cla
+      &lt;p&gt;title: 标签测试文章&lt;br&gt;tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Testing&lt;/li&gt;
+&lt;li&gt;Another Tag&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;我的第一篇文章&quot;&gt;&lt;a href=&quot;#我的第一篇文章&quot; class=&quot;headerlink&quot; t
     
     </summary>
     
+      <category term="ios" scheme="http://yoursite.com/categories/ios/"/>
+    
+    
+      <category term="ios" scheme="http://yoursite.com/tags/ios/"/>
     
   </entry>
   
@@ -53,8 +69,8 @@
     <title>Hello World</title>
     <link href="http://yoursite.com/2016/04/29/hello-world/"/>
     <id>http://yoursite.com/2016/04/29/hello-world/</id>
-    <published>2016-04-29T02:37:44.000Z</published>
-    <updated>2016-04-29T02:37:44.000Z</updated>
+    <published>2016-04-29T04:39:04.000Z</published>
+    <updated>2016-04-29T09:47:35.000Z</updated>
     
     <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
