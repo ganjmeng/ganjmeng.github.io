@@ -70,7 +70,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="GanMeng’s Blog" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="感觉萌的Blog" type="application/atom+xml" />
 
 
 
@@ -80,16 +80,19 @@
 
 
 
+  <meta property="fb:admins" content="" />
+  <meta property="fb:app_id" content="" />
+
 
 
 <meta name="description" content="欲罢不能，想想都有点小激动。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="GanMeng’s Blog">
+<meta property="og:title" content="感觉萌的Blog">
 <meta property="og:url" content="http://yoursite.com/categories/ios/index.html">
-<meta property="og:site_name" content="GanMeng’s Blog">
+<meta property="og:site_name" content="感觉萌的Blog">
 <meta property="og:description" content="欲罢不能，想想都有点小激动。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GanMeng’s Blog">
+<meta name="twitter:title" content="感觉萌的Blog">
 <meta name="twitter:description" content="欲罢不能，想想都有点小激动。">
 
 
@@ -98,22 +101,40 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"always"},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: 6278537346971338000,
-      author: '感觉萌'
+      author: '萌萌'
     }
   };
 </script>
 
-  <title> 分类: ios | GanMeng’s Blog </title>
+  <title> 分类: ios | 感觉萌的Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -143,13 +164,13 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
+      <div class="header-inner"><div class="site-meta custom-logo">
   
 
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">GanMeng’s Blog</span>
+      <span class="site-title">感觉萌的Blog</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -475,6 +496,22 @@
 
         
 
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
         
       </div>
     </footer>
@@ -695,6 +732,9 @@
 
 
   
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
 
 </body>
 </html>
