@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-29T09:47:53.000Z</updated>
+  <updated>2016-05-06T01:10:10.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,28 +16,61 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>建站小记</title>
+    <link href="http://yoursite.com/2016/05/06/untitled-1462496926972/"/>
+    <id>http://yoursite.com/2016/05/06/untitled-1462496926972/</id>
+    <published>2016-05-06T01:08:46.000Z</published>
+    <updated>2016-05-06T01:10:10.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;从小就喜欢玩电脑，一直有一个梦想就是能有一个自己的网站，觉得这是一个很酷的事情，所以经过一个星期的研究和学习，总于搭建了一个属于我自己的博客，是不是很酷！？我本来就是一个不善言表的人，虽然博客是顺利的搭建出来了，但是内容嘛。。所以我决定每周都一定要来更新我的博客，可能是技术也可能是其他的文字内容和个人感悟，以此来提升自己也希望能帮助到大家～加油&lt;code&gt;感觉萌&lt;/code&gt;！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;关于github&quot;&gt;&lt;a href=&quot;#关于github&quot; class=&quot;headerlink&quot; title=&quot;关于github&quot;&gt;&lt;/a&gt;关于github&lt;/h2&gt;&lt;p&gt;1.我的开发环境是&lt;code&gt;OS X&lt;/code&gt;，Mac是自带git的所以也免去了配置git的步骤，我的这个博客其实就是使用&lt;code&gt;github Pages&lt;/code&gt;，然后配合目前最好用的博客框架—hexo搭建的，&lt;code&gt;hexo&lt;/code&gt;是出自一个台湾大学生之手，比起其他的jekll等更好用，而且官方文档也支持中文，很容易看懂，我推荐一篇关于如何搭建个人博客的文章，虽然很容易，但是搭建的过程中也遇到了很多坑。—-&amp;gt;&lt;a href=&quot;http://xiaopingblog.cn/2016/04/08/untitled-1460084538799/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章传送门&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.最近加了一个github iOS 大牛建的iOS高端开发群，我发现自己真的很菜（之前还有点沾沾自喜觉得该会的都会了）程序猿就是这样，学无止境，你不进步就会慢慢被淘汰，我要学的还有很多多，我今年的目标其实很早就定下来了，例如掌握&lt;code&gt;swift&lt;/code&gt;，&lt;code&gt;入门H5&lt;/code&gt;，&lt;code&gt;学习React Native&lt;/code&gt;，可是现实情况就是几乎还没启动！！！我的计划过开源一些框架，当至少目前为止我的github上还是空空如也！！！我的拖延症是时候治治了！今天写这篇文子也是要给自己提个醒，该醒悟了，什么英雄联盟，手机游戏等等都是麻痹自己的，年纪不小了，已经不是玩那些东西的年纪了！&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;关于拖延症&quot;&gt;&lt;a href=&quot;#关于拖延症&quot; class=&quot;headerlink&quot; title=&quot;关于拖延症&quot;&gt;&lt;/a&gt;关于拖延症&lt;/h2&gt;&lt;p&gt;以前还没觉得，之前是在一家外包公司干了一年多，天天任务排的满满的，晚上回去有的时候还会为第二天的工作做写准备，现在的这家公司的节奏和之前完全不一样，没有加班，任务比较轻松，每天上班把该完成的做完基本上就可以逛逛论坛，看看大牛的博客等等，但是回到家里之后就再也没有了从前的那种激情（躺在床上玩手机游戏，看泡沫剧等等）虽然也有想过要去学习，比如我会在心里说该看看斯坦福的iOS视频了，该学swift了，该看新买的有关H5的书了，但是每次脑海中都有一个声音：过几天在看，反正时间还多，公司事情也不忙，就这样本来计划15年看完的斯坦福公开课至今都没看完，我在TED的视频中看到有关拖延症的（&lt;a href=&quot;http://open.163.com/movie/2016/3/Q/E/MBHQSM52F_MBI15O7QE.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;TED拖延症视频&lt;/a&gt;），OMG这不是和我的情况类似吗。。，更可怕的是这还是没有期限的拖延症。p.s. 难道我的大脑里真的有个猴子在掌舵吗。。拖延症太可怕了！！！&lt;/p&gt;
+&lt;h2 id=&quot;关于hexo&quot;&gt;&lt;a href=&quot;#关于hexo&quot; class=&quot;headerlink&quot; title=&quot;关于hexo&quot;&gt;&lt;/a&gt;关于hexo&lt;/h2&gt;&lt;p&gt;hexo的安装需要两个前提条件：安装git和nodejs。&lt;br&gt;参见&lt;a href=&quot;https://hexo.io/zh-cn/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo官方文档&lt;/a&gt;。nodejs有Mac下的&lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;安装包下载地址&lt;/a&gt;，安装的时候注意添加node环境变量，然后再用&lt;code&gt;npm install -g hexo&lt;/code&gt;一句代码就能安装好了。如果报错那就是权限问题在前面加上&lt;code&gt;sudo&lt;/code&gt;就可以了，像这样&lt;code&gt;sudo npm install -g&lt;/code&gt;.&lt;br&gt;接下来，我还要谢谢&lt;a href=&quot;https://github.com/biggercoffee&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;锤神&lt;/a&gt;，是他耐心的解答我遇到的各种问题，十分感谢！&lt;/p&gt;
+&lt;h2 id=&quot;关于ganmmeng-cn&quot;&gt;&lt;a href=&quot;#关于ganmmeng-cn&quot; class=&quot;headerlink&quot; title=&quot;关于ganmmeng.cn&quot;&gt;&lt;/a&gt;关于ganmmeng.cn&lt;/h2&gt;&lt;p&gt;我是是一个选择恐惧症患者，这个域名是我话了一上午时间才确定的，毕竟是我人生中第一个域名。。虽然才花了29块钱 ＝＝。。叫ganmmeng是因为我的小名就叫萌萌，我是男的！还有我姓甘，最后我的第一个域名就这样诞生了！当然这些都不是重点，只有坚持写出好的东西，分享自己的经验和心得，这个博客才能有更多的意义吧。&lt;/p&gt;
+&lt;h2 id=&quot;关于我&quot;&gt;&lt;a href=&quot;#关于我&quot; class=&quot;headerlink&quot; title=&quot;关于我&quot;&gt;&lt;/a&gt;关于我&lt;/h2&gt;&lt;p&gt;我就是一个普通的程序猿，有一些情怀和理想，经历过成功与失败，但还是热爱我的生活和事业，希望尽自己的努力去生活的快乐。最后放上一段前几天看到的鸡汤&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“你20几岁的努力与沉淀，是为30岁以后的优质生活打下基础。现在的我，可以理直气壮的因为贫穷这件事来不断督促自己努力进步。我知道，这辈子也许无法大富大贵，但只要平安健康也是知足。至少，我一直处于努力状态中，奔跑的姿态会告诉我并没有辜负时间”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;为自己加油！&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;2016.4.29
+Gan
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;从小就喜欢玩电脑，一直有一个梦想就是能有一个自己的网站，觉得这是一个很酷的事情，所以经过一个星期的研究和学习，总于搭建了一个属于我自己的博客，是不是很酷！？我本来就是一个不善言表的人，虽然博客是顺利的搭建出来了，但是内容嘛。。所以我决定每周都一定要来更新我的博客，可能是技术也可能是其他的文字内容和个人感悟，以此来提升自己也希望能帮助到大家～加油&lt;code&gt;感觉萌&lt;/code&gt;！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;关于github&quot;&gt;&lt;a href=&quot;#关于github&quot; class=&quot;headerlink&quot; title=&quot;关于github&quot;&gt;&lt;/a&gt;关于github&lt;/h2&gt;&lt;p&gt;1.我的开发环境是&lt;code&gt;OS X&lt;/code&gt;，Mac是自带git的所以也免去了配置git的步骤，我的这个博客其实就是使用&lt;code&gt;github Pages&lt;/code&gt;，然后配合目前最好用的博客框架—hexo搭建的，&lt;code&gt;hexo&lt;/code&gt;是出自一个台湾大学生之手，比起其他的jekll等更好用，而且官方文档也支持中文，很容易看懂，我推荐一篇关于如何搭建个人博客的文章，虽然很容易，但是搭建的过程中也遇到了很多坑。—-&amp;gt;&lt;a href=&quot;http://xiaopingblog.cn/2016/04/08/untitled-1460084538799/&quot;&gt;文章传送门&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.最近加了一个github iOS 大牛建的iOS高端开发群，我发现自己真的很菜（之前还有点沾沾自喜觉得该会的都会了）程序猿就是这样，学无止境，你不进步就会慢慢被淘汰，我要学的还有很多多，我今年的目标其实很早就定下来了，例如掌握&lt;code&gt;swift&lt;/code&gt;，&lt;code&gt;入门H5&lt;/code&gt;，&lt;code&gt;学习React Native&lt;/code&gt;，可是现实情况就是几乎还没启动！！！我的计划过开源一些框架，当至少目前为止我的github上还是空空如也！！！我的拖延症是时候治治了！今天写这篇文子也是要给自己提个醒，该醒悟了，什么英雄联盟，手机游戏等等都是麻痹自己的，年纪不小了，已经不是玩那些东西的年纪了！&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>hexo-hey</title>
     <link href="http://yoursite.com/2016/04/29/untitled-1461912646136/"/>
     <id>http://yoursite.com/2016/04/29/untitled-1461912646136/</id>
     <published>2016-04-29T06:50:46.000Z</published>
-    <updated>2016-04-29T09:47:53.000Z</updated>
+    <updated>2016-05-06T01:12:35.000Z</updated>
     
-    <content type="html">&lt;p&gt;title: 标签测试文章&lt;br&gt;tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Testing&lt;/li&gt;
-&lt;li&gt;Another Tag&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;我的第一篇文章&quot;&gt;&lt;a href=&quot;#我的第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;我的第一篇文章&quot;&gt;&lt;/a&gt;我的第一篇文章&lt;/h1&gt;&lt;h3 id=&quot;Hey-hexo-真的很强大&quot;&gt;&lt;a href=&quot;#Hey-hexo-真的很强大&quot; class=&quot;headerlink&quot; title=&quot;Hey hexo 真的很强大&quot;&gt;&lt;/a&gt;Hey hexo 真的很强大&lt;/h3&gt;&lt;h1 id=&quot;hexo-hey&quot;&gt;&lt;a href=&quot;#hexo-hey&quot; class=&quot;headerlink&quot; title=&quot;hexo-hey&quot;&gt;&lt;/a&gt;hexo-hey&lt;/h1&gt;&lt;p&gt;an admin plugin for hexo, support hexo v3.x&lt;br&gt;built with gulp + babel + webpack&lt;br&gt;using es6 + angular + materail + jwt&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;Hey-hexo-真的很强大&quot;&gt;&lt;a href=&quot;#Hey-hexo-真的很强大&quot; class=&quot;headerlink&quot; title=&quot;Hey hexo 真的很强大&quot;&gt;&lt;/a&gt;Hey hexo 真的很强大&lt;/h1&gt;&lt;p&gt;an admin plugin for hexo, support hexo v3.x&lt;br&gt;built with gulp + babel + webpack&lt;br&gt;using es6 + angular + materail + jwt&lt;/p&gt;
 &lt;h2 id=&quot;Demo&quot;&gt;&lt;a href=&quot;#Demo&quot; class=&quot;headerlink&quot; title=&quot;Demo&quot;&gt;&lt;/a&gt;Demo&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://nihgwu.github.io/hexo-hey/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://nihgwu.github.io/hexo-hey/&lt;/a&gt;&lt;br&gt;username: hexo&lt;br&gt;passowrd: hey  &lt;/p&gt;
-&lt;h2 id=&quot;Screenshots&quot;&gt;&lt;a href=&quot;#Screenshots&quot; class=&quot;headerlink&quot; title=&quot;Screenshots&quot;&gt;&lt;/a&gt;Screenshots&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;./screenshot/1.jpg&quot; alt=&quot;desktop&quot;&gt;&lt;br&gt;&lt;img src=&quot;./screenshot/2.jpg&quot; alt=&quot;mobile&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot; title=&quot;About&quot;&gt;&lt;/a&gt;About&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;client framework: &lt;a href=&quot;https://github.com/angular/angular.js&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;angular&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;dashboard ui: &lt;a href=&quot;https://github.com/angular/material&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;material&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;authentication: &lt;a href=&quot;https://github.com/auth0/node-jsonwebtoken&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;jwt&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;markdown parser: &lt;a href=&quot;https://github.com/chjj/marked&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;marked&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;markdown style: &lt;a href=&quot;https://github.com/sindresorhus/github-markdown-css&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;github-markdown-css&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;markdown editor: &lt;a href=&quot;https://github.com/codemirror/CodeMirror&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;codemirror&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;markdown editor: &lt;a href=&quot;https://github.com/codemirror/CodeMirror&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;codemirror&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;Usage&quot;&gt;&lt;a href=&quot;#Usage&quot; class=&quot;headerlink&quot; title=&quot;Usage&quot;&gt;&lt;/a&gt;Usage&lt;/h2&gt;&lt;h3 id=&quot;1-install-hexo-hey&quot;&gt;&lt;a href=&quot;#1-install-hexo-hey&quot; class=&quot;headerlink&quot; title=&quot;1. install hexo-hey&quot;&gt;&lt;/a&gt;1. install hexo-hey&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-hey --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;2-add-a-admin-config-section-to-config-yml&quot;&gt;&lt;a href=&quot;#2-add-a-admin-config-section-to-config-yml&quot; class=&quot;headerlink&quot; title=&quot;2. add a admin config section to _config.yml:&quot;&gt;&lt;/a&gt;2. add a admin config section to &lt;code&gt;_config.yml&lt;/code&gt;:&lt;/h3&gt;&lt;figure class=&quot;highlight yml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Admin&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;admin:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;    name:&lt;/span&gt; hexo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;    password:&lt;/span&gt; hey&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;    secret:&lt;/span&gt; hey hexo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;    expire:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;60&lt;/span&gt;*&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;# cors: http://localhost:3000&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -48,13 +81,15 @@
     
     <summary type="html">
     
-      &lt;p&gt;title: 标签测试文章&lt;br&gt;tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Testing&lt;/li&gt;
-&lt;li&gt;Another Tag&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;我的第一篇文章&quot;&gt;&lt;a href=&quot;#我的第一篇文章&quot; class=&quot;headerlink&quot; t
+      &lt;h1 id=&quot;Hey-hexo-真的很强大&quot;&gt;&lt;a href=&quot;#Hey-hexo-真的很强大&quot; class=&quot;headerlink&quot; title=&quot;Hey hexo 真的很强大&quot;&gt;&lt;/a&gt;Hey hexo 真的很强大&lt;/h1&gt;&lt;p&gt;an admin plugin for hexo, support hexo v3.x&lt;br&gt;built with gulp + babel + webpack&lt;br&gt;using es6 + angular + materail + jwt&lt;/p&gt;
+&lt;h2 id=&quot;Demo&quot;&gt;&lt;a href=&quot;#Demo&quot; class=&quot;headerlink&quot; title=&quot;Demo&quot;&gt;&lt;/a&gt;Demo&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://nihgwu.github.io/hexo-hey/&quot;&gt;http://nihgwu.github.io/hexo-hey/&lt;/a&gt;&lt;br&gt;username: hexo&lt;br&gt;passowrd: hey  &lt;/p&gt;
+&lt;h2 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot; title=&quot;About&quot;&gt;&lt;/a&gt;About&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;client framework: &lt;a href=&quot;https://github.com/angular/angular.js&quot;&gt;angular&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;dashboard ui: &lt;a href=&quot;https://github.com/angular/material&quot;&gt;material&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;authentication: &lt;a href=&quot;https://github.com/auth0/node-jsonwebtoken&quot;&gt;jwt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;markdown parser: &lt;a href=&quot;https://github.com/chjj/marked&quot;&gt;marked&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;markdown style: &lt;a href=&quot;https://github.com/sindresorhus/github-markdown-css&quot;&gt;github-markdown-css&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;markdown editor: &lt;a href=&quot;https://github.com/codemirror/CodeMirror&quot;&gt;codemirror&lt;/a&gt;
     
     </summary>
     
@@ -70,11 +105,11 @@
     <link href="http://yoursite.com/2016/04/29/hello-world/"/>
     <id>http://yoursite.com/2016/04/29/hello-world/</id>
     <published>2016-04-29T04:39:04.000Z</published>
-    <updated>2016-04-29T09:47:35.000Z</updated>
+    <updated>2016-05-06T01:12:50.000Z</updated>
     
     <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -85,7 +120,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot;&gt;Writing&lt;/a&gt;&lt;br&gt;
     
     </summary>
     
