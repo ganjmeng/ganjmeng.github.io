@@ -132,9 +132,9 @@ Gan
       <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
     
     
-      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
-    
       <category term="杂" scheme="http://yoursite.com/tags/%E6%9D%82/"/>
+    
+      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
     
   </entry>
   
