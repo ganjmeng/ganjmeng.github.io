@@ -5,8 +5,7 @@
     
     <title>Block 初识 | 感觉萌的Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新
-
+    <meta name="description" content="前言前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新
 什么是Block
 Block是iOS4之后新增的一种语法结构，也称之为“闭包（closure）”
 Block是iOS中一种比较特殊的数据类型
@@ -17,8 +16,7 @@ Block是苹果官方特别推荐使用的数据类型,">
 <meta property="og:title" content="Block 初识">
 <meta property="og:url" content="http://yoursite.com/2016/05/09/Block-1/index.html">
 <meta property="og:site_name" content="感觉萌的Blog">
-<meta property="og:description" content="前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新
-
+<meta property="og:description" content="前言前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新
 什么是Block
 Block是iOS4之后新增的一种语法结构，也称之为“闭包（closure）”
 Block是iOS中一种比较特殊的数据类型
@@ -26,11 +24,10 @@ Block是iOS中一种比较特殊的数据类型
 本质是轻量级的匿名函数，可以作为其他函数的参数或者返回值。
 Block是苹果官方特别推荐使用的数据类型,">
 <meta property="og:image" content="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-9/10169775.jpg">
-<meta property="og:updated_time" content="2016-05-09T02:48:38.000Z">
+<meta property="og:updated_time" content="2016-05-09T05:12:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Block 初识">
-<meta name="twitter:description" content="前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新
-
+<meta name="twitter:description" content="前言前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新
 什么是Block
 Block是iOS4之后新增的一种语法结构，也称之为“闭包（closure）”
 Block是iOS中一种比较特殊的数据类型
@@ -105,7 +102,7 @@ var _hmt = _hmt || [];
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -124,10 +121,10 @@ var _hmt = _hmt || [];
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -156,7 +153,7 @@ var _hmt = _hmt || [];
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
     </div>
 
                 </td>
@@ -176,16 +173,16 @@ var _hmt = _hmt || [];
             <h2 id="name">感觉萌</h2>
             <h3 id="title">iOS Developer &amp; Designer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>ShenZhen, China</span>
-            <a id="follow" target="_blank" href="https://github.com/ganjmeng/">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://github.com/ganjmeng/">SEGUIR</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 4
-                <span>posts</span>
+                <span>Entradas</span>
             </div>
             <div class="article-info-block">
                 5
-                <span>tags</span>
+                <span>Etiquetas</span>
             </div>
         </div>
         
@@ -250,9 +247,12 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <blockquote>
-<p>前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新</p>
-</blockquote>
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catálogo</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Block"><span class="toc-number">2.</span> <span class="toc-text">什么是Block</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Block的作用"><span class="toc-number">3.</span> <span class="toc-text">Block的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Block的格式"><span class="toc-number">4.</span> <span class="toc-text">Block的格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#直接定义Block变量"><span class="toc-number">4.1.</span> <span class="toc-text">直接定义Block变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Block-的定义格式"><span class="toc-number">4.1.1.</span> <span class="toc-text">Block 的定义格式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-block最简单形式（无形参无返回值）"><span class="toc-number">4.1.1.1.</span> <span class="toc-text">1.block最简单形式（无形参无返回值）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-block中级进阶形式（有形参无返回值）"><span class="toc-number">4.1.1.2.</span> <span class="toc-text">2.block中级进阶形式（有形参无返回值）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-block高级进阶形式（有形参有返回值）"><span class="toc-number">4.1.1.3.</span> <span class="toc-text">3.block高级进阶形式（有形参有返回值）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#调用Block"><span class="toc-number">4.1.2.</span> <span class="toc-text">调用Block</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定义Block的类型"><span class="toc-number">4.1.3.</span> <span class="toc-text">定义Block的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用自定义Block类型声明Block对象"><span class="toc-number">4.1.3.1.</span> <span class="toc-text">使用自定义Block类型声明Block对象</span></a></li></ol></li></ol></li></ol></li></ol>
+                </div>
+            
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新</code></p>
 <h2 id="什么是Block"><a href="#什么是Block" class="headerlink" title="什么是Block"></a>什么是Block</h2><ul>
 <li>Block是iOS4之后新增的一种语法结构，也称之为“闭包（closure）”</li>
 <li>Block是iOS中一种比较特殊的<code>数据类型</code></li>
@@ -346,7 +346,7 @@ var _hmt = _hmt || [];
 
             
     
-        <a href="http://yoursite.com/2016/05/09/Block-1/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://yoursite.com/2016/05/09/Block-1/">Comments</a>
+        <a href="http://yoursite.com/2016/05/09/Block-1/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://yoursite.com/2016/05/09/Block-1/">Comentarios</a>
     
 
         </footer>
@@ -357,7 +357,7 @@ var _hmt = _hmt || [];
     
     
         <a href="/2016/05/06/untitled-1462496926972/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Más viejo</strong>
             <div class="article-nav-title">建站小记</div>
         </a>
     
@@ -420,7 +420,7 @@ var _hmt = _hmt || [];
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
+        <h3 class="widget-title">Recientes</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
@@ -507,7 +507,7 @@ var _hmt = _hmt || [];
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">categories</h3>
+        <h3 class="widget-title">Categorias</h3>
         <div class="widget">
             <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ALL/">ALL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/Block/">Block</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
@@ -516,7 +516,7 @@ var _hmt = _hmt || [];
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
+        <h3 class="widget-title">Archivos</h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li></ul>
         </div>
@@ -525,7 +525,7 @@ var _hmt = _hmt || [];
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">tags</h3>
+        <h3 class="widget-title">Etiquetas</h3>
         <div class="widget">
             <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Block/">Block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">2</span></li></ul>
         </div>
@@ -534,7 +534,7 @@ var _hmt = _hmt || [];
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">tag cloud</h3>
+        <h3 class="widget-title">Nube de etiquetas</h3>
         <div class="widget tagcloud">
             <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/杂/" style="font-size: 20px;">杂</a>
         </div>
@@ -543,7 +543,7 @@ var _hmt = _hmt || [];
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
+        <h3 class="widget-title">Links</h3>
         <div class="widget">
             <ul>
                 
