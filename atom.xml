@@ -4,9 +4,9 @@
   <subtitle>欲罢不能，想想都有点小激动。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://ganmmeng.cn/"/>
   <updated>2016-05-11T02:00:34.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://ganmmeng.cn/</id>
   
   <author>
     <name>Gan Meng</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Block中级进阶（上）</title>
-    <link href="http://yoursite.com/2016/05/11/block-2/"/>
-    <id>http://yoursite.com/2016/05/11/block-2/</id>
+    <link href="http://ganmmeng.cn/2016/05/11/block-2/"/>
+    <id>http://ganmmeng.cn/2016/05/11/block-2/</id>
     <published>2016-05-11T01:48:32.000Z</published>
     <updated>2016-05-11T02:00:34.000Z</updated>
     
@@ -69,21 +69,21 @@
     
     </summary>
     
-      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://ganmmeng.cn/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="Block" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/Block/"/>
+      <category term="Block" scheme="http://ganmmeng.cn/categories/iOS%E5%BC%80%E5%8F%91/Block/"/>
     
     
-      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://ganmmeng.cn/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="Block" scheme="http://yoursite.com/tags/Block/"/>
+      <category term="Block" scheme="http://ganmmeng.cn/tags/Block/"/>
     
   </entry>
   
   <entry>
     <title>Block 初识</title>
-    <link href="http://yoursite.com/2016/05/09/Block-1/"/>
-    <id>http://yoursite.com/2016/05/09/Block-1/</id>
+    <link href="http://ganmmeng.cn/2016/05/09/Block-1/"/>
+    <id>http://ganmmeng.cn/2016/05/09/Block-1/</id>
     <published>2016-05-09T01:40:41.000Z</published>
     <updated>2016-05-11T01:57:28.000Z</updated>
     
@@ -145,21 +145,21 @@
     
     </summary>
     
-      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://ganmmeng.cn/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="Block" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/Block/"/>
+      <category term="Block" scheme="http://ganmmeng.cn/categories/iOS%E5%BC%80%E5%8F%91/Block/"/>
     
     
-      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://ganmmeng.cn/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="Block" scheme="http://yoursite.com/tags/Block/"/>
+      <category term="Block" scheme="http://ganmmeng.cn/tags/Block/"/>
     
   </entry>
   
   <entry>
     <title>建站小记</title>
-    <link href="http://yoursite.com/2016/05/06/untitled-1462496926972/"/>
-    <id>http://yoursite.com/2016/05/06/untitled-1462496926972/</id>
+    <link href="http://ganmmeng.cn/2016/05/06/untitled-1462496926972/"/>
+    <id>http://ganmmeng.cn/2016/05/06/untitled-1462496926972/</id>
     <published>2016-05-06T01:08:46.000Z</published>
     <updated>2016-05-09T05:12:45.000Z</updated>
     
@@ -186,19 +186,19 @@ Gan
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://ganmmeng.cn/categories/blog/"/>
     
     
-      <category term="杂" scheme="http://yoursite.com/tags/%E6%9D%82/"/>
+      <category term="杂" scheme="http://ganmmeng.cn/tags/%E6%9D%82/"/>
     
-      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+      <category term="blog" scheme="http://ganmmeng.cn/tags/blog/"/>
     
   </entry>
   
   <entry>
     <title>hexo-hey</title>
-    <link href="http://yoursite.com/2016/04/29/untitled-1461912646136/"/>
-    <id>http://yoursite.com/2016/04/29/untitled-1461912646136/</id>
+    <link href="http://ganmmeng.cn/2016/04/29/untitled-1461912646136/"/>
+    <id>http://ganmmeng.cn/2016/04/29/untitled-1461912646136/</id>
     <published>2016-04-29T06:50:46.000Z</published>
     <updated>2016-05-09T05:05:43.000Z</updated>
     
@@ -234,17 +234,17 @@ Gan
     
     </summary>
     
-      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+      <category term="hexo" scheme="http://ganmmeng.cn/categories/hexo/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="hexo" scheme="http://ganmmeng.cn/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2016/04/29/hello-world/"/>
-    <id>http://yoursite.com/2016/04/29/hello-world/</id>
+    <link href="http://ganmmeng.cn/2016/04/29/hello-world/"/>
+    <id>http://ganmmeng.cn/2016/04/29/hello-world/</id>
     <published>2016-04-29T04:39:04.000Z</published>
     <updated>2016-05-09T05:05:31.000Z</updated>
     
@@ -267,10 +267,10 @@ Gan
     
     </summary>
     
-      <category term="ALL" scheme="http://yoursite.com/categories/ALL/"/>
+      <category term="ALL" scheme="http://ganmmeng.cn/categories/ALL/"/>
     
     
-      <category term="杂" scheme="http://yoursite.com/tags/%E6%9D%82/"/>
+      <category term="杂" scheme="http://ganmmeng.cn/tags/%E6%9D%82/"/>
     
   </entry>
   
