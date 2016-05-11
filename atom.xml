@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-09T05:12:21.000Z</updated>
+  <updated>2016-05-11T01:57:38.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,70 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Block中级进阶（上）</title>
+    <link href="http://yoursite.com/2016/05/11/block-2/"/>
+    <id>http://yoursite.com/2016/05/11/block-2/</id>
+    <published>2016-05-11T01:48:32.000Z</published>
+    <updated>2016-05-11T01:57:38.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/38326275.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;code&gt;前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Block和变量&quot;&gt;&lt;a href=&quot;#Block和变量&quot; class=&quot;headerlink&quot; title=&quot;Block和变量&quot;&gt;&lt;/a&gt;Block和变量&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;变量按作用域又分有全局变量和局部变量&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;block代码块内可以引用这两种变量，但是有不同的管理机制&lt;/strong&gt;                &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;代码说明&quot;&gt;&lt;a href=&quot;#代码说明&quot; class=&quot;headerlink&quot; title=&quot;代码说明&quot;&gt;&lt;/a&gt;代码说明&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;在Block里 可以读取变量，但是默认情况是下&lt;code&gt;不能修改&lt;/code&gt;变量的值的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; (^myBlock)(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;) = ^(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  a = &lt;span class=&quot;number&quot;&gt;10000&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//这里会报错，&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;%d %d\n&quot;&lt;/span&gt;, a, b);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;myBlock(&lt;span class=&quot;number&quot;&gt;110&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//调用Block&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*---------输出结果---------*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;@&quot;prints: 100 110&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;Block 能读取变量的原理是 &lt;code&gt;copy&lt;/code&gt;了一份变量的值,也有说是Block将外部变量以&lt;code&gt;常量&lt;/code&gt;的形式存进去。所以在 Block 定义之后修改变量的值，再调用 Block，值依旧是修改前的。换句话说，定义好 Block 之后，修改变量值对 Block 无效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; (^myBlock)(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;) = ^(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  a = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//这里会报错，&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;%d %d\n&quot;&lt;/span&gt;, a, b);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a = &lt;span class=&quot;number&quot;&gt;10000&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//在Block定义后修改a的值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;myBlock(&lt;span class=&quot;number&quot;&gt;110&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//调用Block&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*---------输出结果---------*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;@&quot;prints: 100 110&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;block关键字的用处&quot;&gt;&lt;a href=&quot;#block关键字的用处&quot; class=&quot;headerlink&quot; title=&quot;__block关键字的用处&quot;&gt;&lt;/a&gt;__block关键字的用处&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;如果需要对在block里&lt;code&gt;修改&lt;/code&gt;外部定义的变量，那么需要对这个变量前添加一个&lt;code&gt;__block&lt;/code&gt;修饰。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;__block &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//在变量前添加__block&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; (^myBlock)(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;) = ^(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  a = &lt;span class=&quot;number&quot;&gt;10000&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//这里不会报错，&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;%d %d\n&quot;&lt;/span&gt;, a, b);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;myBlock(&lt;span class=&quot;number&quot;&gt;110&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//调用Block&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*---------输出结果---------*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;@&quot;prints: 10000 110&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;如果需要在block定义外面&lt;code&gt;修改&lt;/code&gt;变量的值，变量的修改都会影响 block 内部对这个变量的使用，换句话说，block 对变量不再是简单的值复制，而是动态的&lt;code&gt;&amp;quot;监听&amp;quot;&lt;/code&gt;值的变化，然后在调用的时候读取变量&lt;code&gt;修改后&lt;/code&gt;的值，也需要对这个变量添加一个&lt;code&gt;__block&lt;/code&gt;修饰。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;__block &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//在变量前添加__block&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; (^myBlock)(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;) = ^(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  a = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//这里会报错，&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;%d %d\n&quot;&lt;/span&gt;, a, b);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a = &lt;span class=&quot;number&quot;&gt;10000&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//在Block定义后修改a的值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;myBlock(&lt;span class=&quot;number&quot;&gt;110&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//调用Block 会「动态」识别外部变量的变化，输出10000也就是a最修改后的值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*---------输出结果---------*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;@&quot;prints: 10000 110&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;最后还要注意区别&lt;code&gt;变量&lt;/code&gt;和&lt;code&gt;指针所指向的变量&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a= &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSMutableString&lt;/span&gt; *str = [&lt;span class=&quot;built_in&quot;&gt;NSMutableString&lt;/span&gt; stringWithFormat:&lt;span class=&quot;string&quot;&gt;@&quot;Hello&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; (^printStr)() = ^() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  [str appendString:&lt;span class=&quot;string&quot;&gt;@&quot;World&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;%@&quot;&lt;/span&gt;,str);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;printStr();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*---------输出结果---------*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;@&quot;prints:  HelloWorld&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;为什么在block里面修改string [str appendString:@”World”];不报错是因为str 是指向@”Hello”的函数指针，[str appendString:@”World”];并不是修改 str 所存储的值，本质上是 str 向@”Hello”发送了一条appendString 消息，然后再更改@”Hello”为@”HelloWorld”，而 str 存储的指向@”HelloWorld”对象的指针没有发生变化。所以， &lt;strong&gt;&lt;code&gt;block&lt;/code&gt;本质上是不能修改变量存储的值，但是消息分发确依旧有效&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/38326275.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Block" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/Block/"/>
+    
+    
+      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Block" scheme="http://yoursite.com/tags/Block/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Block 初识</title>
     <link href="http://yoursite.com/2016/05/09/Block-1/"/>
     <id>http://yoursite.com/2016/05/09/Block-1/</id>
     <published>2016-05-09T01:40:41.000Z</published>
-    <updated>2016-05-09T05:12:21.000Z</updated>
+    <updated>2016-05-11T01:57:28.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;code&gt;前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新&lt;/code&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/2759230.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;code&gt;前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&quot;什么是Block&quot;&gt;&lt;a href=&quot;#什么是Block&quot; class=&quot;headerlink&quot; title=&quot;什么是Block&quot;&gt;&lt;/a&gt;什么是Block&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Block是iOS4之后新增的一种语法结构，也称之为“闭包（closure）”&lt;/li&gt;
 &lt;li&gt;Block是iOS中一种比较特殊的&lt;code&gt;数据类型&lt;/code&gt;&lt;/li&gt;
@@ -57,7 +114,8 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;code&gt;前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新&lt;/code&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/2759230.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&lt;code&gt;前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&quot;什么是Block&quot;&gt;&lt;a href=&quot;#什么是Block&quot; class=&quot;headerlink&quot; title=&quot;什么是Block&quot;&gt;&lt;/a&gt;什么是Block&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Block是iOS4之后新增的一种语法结构，也称之为“闭包（closure）”&lt;/li&gt;
 &lt;li&gt;Block是iOS中一种比较特殊的&lt;code&gt;数据类型&lt;/code&gt;&lt;/li&gt;

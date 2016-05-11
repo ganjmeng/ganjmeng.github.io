@@ -158,7 +158,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                4
+                5
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -188,6 +188,149 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-block-2" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/05/11/block-2/">Block中级进阶（上）</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/11/block-2/">
+            <time datetime="2016-05-11T01:48:32.000Z" itemprop="datePublished">2016-05-11</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/iOS开发/Block/">Block</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Block/">Block</a>, <a class="tag-link" href="/tags/iOS开发/">iOS开发</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><img src="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/38326275.jpg" alt=""></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新</code></p>
+<h2 id="Block和变量"><a href="#Block和变量" class="headerlink" title="Block和变量"></a>Block和变量</h2><ul>
+<li><strong>变量按作用域又分有全局变量和局部变量</strong></li>
+<li><strong>block代码块内可以引用这两种变量，但是有不同的管理机制</strong>                </li>
+</ul>
+<h3 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h3><ul>
+<li>在Block里 可以读取变量，但是默认情况是下<code>不能修改</code>变量的值的</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">void</span> (^myBlock)(<span class="keyword">int</span>) = ^(<span class="keyword">int</span> b) &#123;</span><br><span class="line">  a = <span class="number">10000</span>; <span class="comment">//这里会报错，</span></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"%d %d\n"</span>, a, b);</span><br><span class="line">&#125;;</span><br><span class="line">myBlock(<span class="number">110</span>); <span class="comment">//调用Block</span></span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints: 100 110"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Block 能读取变量的原理是 <code>copy</code>了一份变量的值,也有说是Block将外部变量以<code>常量</code>的形式存进去。所以在 Block 定义之后修改变量的值，再调用 Block，值依旧是修改前的。换句话说，定义好 Block 之后，修改变量值对 Block 无效。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">void</span> (^myBlock)(<span class="keyword">int</span>) = ^(<span class="keyword">int</span> b) &#123;</span><br><span class="line">  a = <span class="number">123</span>; <span class="comment">//这里会报错，</span></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"%d %d\n"</span>, a, b);</span><br><span class="line">&#125;;</span><br><span class="line">a = <span class="number">10000</span>;<span class="comment">//在Block定义后修改a的值</span></span><br><span class="line"></span><br><span class="line">myBlock(<span class="number">110</span>); <span class="comment">//调用Block</span></span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints: 100 110"</span></span><br></pre></td></tr></table></figure>
+<h3 id="block关键字的用处"><a href="#block关键字的用处" class="headerlink" title="__block关键字的用处"></a>__block关键字的用处</h3><ul>
+<li>如果需要对在block里<code>修改</code>外部定义的变量，那么需要对这个变量前添加一个<code>__block</code>修饰。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__block <span class="keyword">int</span> a = <span class="number">100</span>; <span class="comment">//在变量前添加__block</span></span><br><span class="line"><span class="keyword">void</span> (^myBlock)(<span class="keyword">int</span>) = ^(<span class="keyword">int</span> b) &#123;</span><br><span class="line">  a = <span class="number">10000</span>; <span class="comment">//这里不会报错，</span></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"%d %d\n"</span>, a, b);</span><br><span class="line">&#125;;</span><br><span class="line">myBlock(<span class="number">110</span>); <span class="comment">//调用Block</span></span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints: 10000 110"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果需要在block定义外面<code>修改</code>变量的值，变量的修改都会影响 block 内部对这个变量的使用，换句话说，block 对变量不再是简单的值复制，而是动态的<code>&quot;监听&quot;</code>值的变化，然后在调用的时候读取变量<code>修改后</code>的值，也需要对这个变量添加一个<code>__block</code>修饰。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">__block <span class="keyword">int</span> a = <span class="number">100</span>; <span class="comment">//在变量前添加__block</span></span><br><span class="line"><span class="keyword">void</span> (^myBlock)(<span class="keyword">int</span>) = ^(<span class="keyword">int</span> b) &#123;</span><br><span class="line">  a = <span class="number">123</span>; <span class="comment">//这里会报错，</span></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"%d %d\n"</span>, a, b);</span><br><span class="line">&#125;;</span><br><span class="line">a = <span class="number">10000</span>;<span class="comment">//在Block定义后修改a的值</span></span><br><span class="line"></span><br><span class="line">myBlock(<span class="number">110</span>); <span class="comment">//调用Block 会「动态」识别外部变量的变化，输出10000也就是a最修改后的值</span></span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints: 10000 110"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>最后还要注意区别<code>变量</code>和<code>指针所指向的变量</code></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a= <span class="number">123</span>;</span><br><span class="line"><span class="built_in">NSMutableString</span> *str = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"Hello"</span>];</span><br><span class="line"><span class="keyword">void</span> (^printStr)() = ^() &#123;</span><br><span class="line">  [str appendString:<span class="string">@"World"</span>];</span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,str);</span><br><span class="line">&#125;;</span><br><span class="line">printStr();</span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints:  HelloWorld"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>为什么在block里面修改string [str appendString:@”World”];不报错是因为str 是指向@”Hello”的函数指针，[str appendString:@”World”];并不是修改 str 所存储的值，本质上是 str 向@”Hello”发送了一条appendString 消息，然后再更改@”Hello”为@”HelloWorld”，而 str 存储的指向@”HelloWorld”对象的指针没有发生变化。所以， <strong><code>block</code>本质上是不能修改变量存储的值，但是消息分发确依旧有效</strong>。</p>
+</blockquote>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://yoursite.com/2016/05/11/block-2/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/05/11/block-2/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Block-1" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -228,7 +371,8 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新</code></p>
+            <p><p><img src="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/2759230.jpg" alt=""></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新</code></p>
 <h2 id="什么是Block"><a href="#什么是Block" class="headerlink" title="什么是Block"></a>什么是Block</h2><ul>
 <li>Block是iOS4之后新增的一种语法结构，也称之为“闭包（closure）”</li>
 <li>Block是iOS中一种比较特殊的<code>数据类型</code></li>
@@ -693,10 +837,29 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/05/11/block-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/38326275.jpg)" alt="Block中级进阶（上）" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/iOS开发/Block/">Block</a></p>
+                            <p class="item-title"><a href="/2016/05/11/block-2/" class="title">Block中级进阶（上）</a></p>
+                            <p class="item-date"><time datetime="2016-05-11T01:48:32.000Z" itemprop="datePublished">2016-05-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/05/09/Block-1/" class="thumbnail">
     
     
-        <span style="background-image:url(http://7xtu7q.com1.z0.glb.clouddn.com/16-5-9/10169775.jpg)" alt="Block 初识" class="thumbnail-image"></span>
+        <span style="background-image:url(http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/2759230.jpg)" alt="Block 初识" class="thumbnail-image"></span>
     
 </a>
 
@@ -775,7 +938,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ALL/">ALL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/Block/">Block</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ALL/">ALL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/Block/">Block</a><span class="category-list-count">2</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -784,7 +947,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -793,7 +956,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Block/">Block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Block/">Block</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -802,7 +965,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Block/" style="font-size: 10px;">Block</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/杂/" style="font-size: 20px;">杂</a>
+            <a href="/tags/Block/" style="font-size: 20px;">Block</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/杂/" style="font-size: 20px;">杂</a>
         </div>
     </div>
 

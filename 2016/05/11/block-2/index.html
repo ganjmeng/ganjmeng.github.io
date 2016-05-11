@@ -3,24 +3,44 @@
 <head>
     <meta charset="utf-8">
     
-    <title>hexo-hey | 感觉萌的Blog</title>
+    <title>Block中级进阶（上） | 感觉萌的Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Hey hexo 真的很强大an admin plugin for hexo, support hexo v3.xbuilt with gulp + babel + webpackusing es6 + angular + materail + jwt
-Demohttp://nihgwu.github.io/hexo-hey/username: hexopassowrd: hey  
-About">
+    <meta name="description" content="前言前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新
+Block和变量
+变量按作用域又分有全局变量和局部变量
+block代码块内可以引用这两种变量，但是有不同的管理机制                
+
+代码说明
+在Block里 可以读取变量，但是默认情况是下不能修改变量的值的
+
+12345678int a = 100;void (^myBlock">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo-hey">
-<meta property="og:url" content="http://yoursite.com/2016/04/29/untitled-1461912646136/index.html">
+<meta property="og:title" content="Block中级进阶（上）">
+<meta property="og:url" content="http://yoursite.com/2016/05/11/block-2/index.html">
 <meta property="og:site_name" content="感觉萌的Blog">
-<meta property="og:description" content="Hey hexo 真的很强大an admin plugin for hexo, support hexo v3.xbuilt with gulp + babel + webpackusing es6 + angular + materail + jwt
-Demohttp://nihgwu.github.io/hexo-hey/username: hexopassowrd: hey  
-About">
-<meta property="og:updated_time" content="2016-05-09T05:05:43.000Z">
+<meta property="og:description" content="前言前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新
+Block和变量
+变量按作用域又分有全局变量和局部变量
+block代码块内可以引用这两种变量，但是有不同的管理机制                
+
+代码说明
+在Block里 可以读取变量，但是默认情况是下不能修改变量的值的
+
+12345678int a = 100;void (^myBlock">
+<meta property="og:image" content="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/38326275.jpg">
+<meta property="og:updated_time" content="2016-05-11T01:57:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo-hey">
-<meta name="twitter:description" content="Hey hexo 真的很强大an admin plugin for hexo, support hexo v3.xbuilt with gulp + babel + webpackusing es6 + angular + materail + jwt
-Demohttp://nihgwu.github.io/hexo-hey/username: hexopassowrd: hey  
-About">
+<meta name="twitter:title" content="Block中级进阶（上）">
+<meta name="twitter:description" content="前言前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新
+Block和变量
+变量按作用域又分有全局变量和局部变量
+block代码块内可以引用这两种变量，但是有不同的管理机制                
+
+代码说明
+在Block里 可以读取变量，但是默认情况是下不能修改变量的值的
+
+12345678int a = 100;void (^myBlock">
+<meta name="twitter:image" content="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/38326275.jpg">
     
 
     
@@ -194,7 +214,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-untitled-1461912646136" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-block-2" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -203,7 +223,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            hexo-hey
+            Block中级进阶（上）
         </h1>
     
 
@@ -211,8 +231,8 @@ var _hmt = _hmt || [];
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/29/untitled-1461912646136/">
-            <time datetime="2016-04-29T06:50:46.000Z" itemprop="datePublished">2016-04-29</time>
+        <a href="/2016/05/11/block-2/">
+            <time datetime="2016-05-11T01:48:32.000Z" itemprop="datePublished">2016-05-11</time>
         </a>
     </div>
 
@@ -220,13 +240,13 @@ var _hmt = _hmt || [];
                     
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/hexo/">hexo</a>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/iOS开发/Block/">Block</a>
     </div>
 
                     
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/hexo/">hexo</a>
+        <a class="tag-link" href="/tags/Block/">Block</a>, <a class="tag-link" href="/tags/iOS开发/">iOS开发</a>
     </div>
 
                 </div>
@@ -237,25 +257,38 @@ var _hmt = _hmt || [];
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hey-hexo-真的很强大"><span class="toc-number">1.</span> <span class="toc-text">Hey hexo 真的很强大</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo"><span class="toc-number">1.1.</span> <span class="toc-text">Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number">1.2.</span> <span class="toc-text">About</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Usage"><span class="toc-number">1.3.</span> <span class="toc-text">Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-install-hexo-hey"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. install hexo-hey</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-add-a-admin-config-section-to-config-yml"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. add a admin config section to _config.yml:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-serve-hexo"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. serve hexo</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Block和变量"><span class="toc-number">2.</span> <span class="toc-text">Block和变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码说明"><span class="toc-number">2.1.</span> <span class="toc-text">代码说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#block关键字的用处"><span class="toc-number">2.2.</span> <span class="toc-text">__block关键字的用处</span></a></li></ol></li></ol>
                 </div>
             
-            <h1 id="Hey-hexo-真的很强大"><a href="#Hey-hexo-真的很强大" class="headerlink" title="Hey hexo 真的很强大"></a>Hey hexo 真的很强大</h1><p>an admin plugin for hexo, support hexo v3.x<br>built with gulp + babel + webpack<br>using es6 + angular + materail + jwt</p>
-<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p><a href="http://nihgwu.github.io/hexo-hey/" target="_blank" rel="external">http://nihgwu.github.io/hexo-hey/</a><br>username: hexo<br>passowrd: hey  </p>
-<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><ul>
-<li>client framework: <a href="https://github.com/angular/angular.js" target="_blank" rel="external">angular</a></li>
-<li>dashboard ui: <a href="https://github.com/angular/material" target="_blank" rel="external">material</a></li>
-<li>authentication: <a href="https://github.com/auth0/node-jsonwebtoken" target="_blank" rel="external">jwt</a></li>
-<li>markdown parser: <a href="https://github.com/chjj/marked" target="_blank" rel="external">marked</a></li>
-<li>markdown style: <a href="https://github.com/sindresorhus/github-markdown-css" target="_blank" rel="external">github-markdown-css</a></li>
-<li>markdown editor: <a href="https://github.com/codemirror/CodeMirror" target="_blank" rel="external">codemirror</a><a id="more"></a>
-</li>
+            <p><img src="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/38326275.jpg" alt=""></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新</code></p>
+<h2 id="Block和变量"><a href="#Block和变量" class="headerlink" title="Block和变量"></a>Block和变量</h2><ul>
+<li><strong>变量按作用域又分有全局变量和局部变量</strong></li>
+<li><strong>block代码块内可以引用这两种变量，但是有不同的管理机制</strong>                </li>
 </ul>
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="1-install-hexo-hey"><a href="#1-install-hexo-hey" class="headerlink" title="1. install hexo-hey"></a>1. install hexo-hey</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-hey --save</span><br></pre></td></tr></table></figure>
-<h3 id="2-add-a-admin-config-section-to-config-yml"><a href="#2-add-a-admin-config-section-to-config-yml" class="headerlink" title="2. add a admin config section to _config.yml:"></a>2. add a admin config section to <code>_config.yml</code>:</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Admin</span></span><br><span class="line"><span class="attr">admin:</span></span><br><span class="line"><span class="attr">    name:</span> hexo</span><br><span class="line"><span class="attr">    password:</span> hey</span><br><span class="line"><span class="attr">    secret:</span> hey hexo</span><br><span class="line"><span class="attr">    expire:</span> <span class="number">60</span>*<span class="number">1</span></span><br><span class="line">    <span class="comment"># cors: http://localhost:3000</span></span><br></pre></td></tr></table></figure>
-<p>cors is optional if you want serve your client in another place(CDN for example)</p>
-<h3 id="3-serve-hexo"><a href="#3-serve-hexo" class="headerlink" title="3. serve hexo"></a>3. serve hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo serve</span><br></pre></td></tr></table></figure>
-<p>then visit <code>http://localhost:4000/admin</code> , and login with the account set in previous step</p>
+<h3 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h3><ul>
+<li>在Block里 可以读取变量，但是默认情况是下<code>不能修改</code>变量的值的</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">void</span> (^myBlock)(<span class="keyword">int</span>) = ^(<span class="keyword">int</span> b) &#123;</span><br><span class="line">  a = <span class="number">10000</span>; <span class="comment">//这里会报错，</span></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"%d %d\n"</span>, a, b);</span><br><span class="line">&#125;;</span><br><span class="line">myBlock(<span class="number">110</span>); <span class="comment">//调用Block</span></span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints: 100 110"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Block 能读取变量的原理是 <code>copy</code>了一份变量的值,也有说是Block将外部变量以<code>常量</code>的形式存进去。所以在 Block 定义之后修改变量的值，再调用 Block，值依旧是修改前的。换句话说，定义好 Block 之后，修改变量值对 Block 无效。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">void</span> (^myBlock)(<span class="keyword">int</span>) = ^(<span class="keyword">int</span> b) &#123;</span><br><span class="line">  a = <span class="number">123</span>; <span class="comment">//这里会报错，</span></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"%d %d\n"</span>, a, b);</span><br><span class="line">&#125;;</span><br><span class="line">a = <span class="number">10000</span>;<span class="comment">//在Block定义后修改a的值</span></span><br><span class="line"></span><br><span class="line">myBlock(<span class="number">110</span>); <span class="comment">//调用Block</span></span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints: 100 110"</span></span><br></pre></td></tr></table></figure>
+<h3 id="block关键字的用处"><a href="#block关键字的用处" class="headerlink" title="__block关键字的用处"></a>__block关键字的用处</h3><ul>
+<li>如果需要对在block里<code>修改</code>外部定义的变量，那么需要对这个变量前添加一个<code>__block</code>修饰。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__block <span class="keyword">int</span> a = <span class="number">100</span>; <span class="comment">//在变量前添加__block</span></span><br><span class="line"><span class="keyword">void</span> (^myBlock)(<span class="keyword">int</span>) = ^(<span class="keyword">int</span> b) &#123;</span><br><span class="line">  a = <span class="number">10000</span>; <span class="comment">//这里不会报错，</span></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"%d %d\n"</span>, a, b);</span><br><span class="line">&#125;;</span><br><span class="line">myBlock(<span class="number">110</span>); <span class="comment">//调用Block</span></span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints: 10000 110"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果需要在block定义外面<code>修改</code>变量的值，变量的修改都会影响 block 内部对这个变量的使用，换句话说，block 对变量不再是简单的值复制，而是动态的<code>&quot;监听&quot;</code>值的变化，然后在调用的时候读取变量<code>修改后</code>的值，也需要对这个变量添加一个<code>__block</code>修饰。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">__block <span class="keyword">int</span> a = <span class="number">100</span>; <span class="comment">//在变量前添加__block</span></span><br><span class="line"><span class="keyword">void</span> (^myBlock)(<span class="keyword">int</span>) = ^(<span class="keyword">int</span> b) &#123;</span><br><span class="line">  a = <span class="number">123</span>; <span class="comment">//这里会报错，</span></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"%d %d\n"</span>, a, b);</span><br><span class="line">&#125;;</span><br><span class="line">a = <span class="number">10000</span>;<span class="comment">//在Block定义后修改a的值</span></span><br><span class="line"></span><br><span class="line">myBlock(<span class="number">110</span>); <span class="comment">//调用Block 会「动态」识别外部变量的变化，输出10000也就是a最修改后的值</span></span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints: 10000 110"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>最后还要注意区别<code>变量</code>和<code>指针所指向的变量</code></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a= <span class="number">123</span>;</span><br><span class="line"><span class="built_in">NSMutableString</span> *str = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"Hello"</span>];</span><br><span class="line"><span class="keyword">void</span> (^printStr)() = ^() &#123;</span><br><span class="line">  [str appendString:<span class="string">@"World"</span>];</span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,str);</span><br><span class="line">&#125;;</span><br><span class="line">printStr();</span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints:  HelloWorld"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>为什么在block里面修改string [str appendString:@”World”];不报错是因为str 是指向@”Hello”的函数指针，[str appendString:@”World”];并不是修改 str 所存储的值，本质上是 str 向@”Hello”发送了一条appendString 消息，然后再更改@”Hello”为@”HelloWorld”，而 str 存储的指向@”HelloWorld”对象的指针没有发生变化。所以， <strong><code>block</code>本质上是不能修改变量存储的值，但是消息分发确依旧有效</strong>。</p>
+</blockquote>
 
         
         </div>
@@ -319,7 +352,7 @@ var _hmt = _hmt || [];
 
             
     
-        <a href="http://yoursite.com/2016/04/29/untitled-1461912646136/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/04/29/untitled-1461912646136/">评论</a>
+        <a href="http://yoursite.com/2016/05/11/block-2/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/05/11/block-2/">评论</a>
     
 
         </footer>
@@ -328,19 +361,10 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/2016/05/06/untitled-1462496926972/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    建站小记
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/04/29/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/05/09/Block-1/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Hello World</div>
+            <div class="article-nav-title">Block 初识</div>
         </a>
     
 </nav>
@@ -545,7 +569,7 @@ var _hmt = _hmt || [];
     var disqus_shortname = 'ganmeng';
     
     
-    var disqus_url = 'http://yoursite.com/2016/04/29/untitled-1461912646136/';
+    var disqus_url = 'http://yoursite.com/2016/05/11/block-2/';
     
     (function() {
     var dsq = document.createElement('script');
