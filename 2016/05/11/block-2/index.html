@@ -28,7 +28,7 @@ block代码块内可以引用这两种变量，但是有不同的管理机制
 
 12345678int a = 100;void (^myBlock">
 <meta property="og:image" content="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/38326275.jpg">
-<meta property="og:updated_time" content="2016-05-11T01:57:38.000Z">
+<meta property="og:updated_time" content="2016-05-11T02:00:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Block中级进阶（上）">
 <meta name="twitter:description" content="前言前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新
@@ -270,6 +270,7 @@ var _hmt = _hmt || [];
 <li>在Block里 可以读取变量，但是默认情况是下<code>不能修改</code>变量的值的</li>
 </ul>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">void</span> (^myBlock)(<span class="keyword">int</span>) = ^(<span class="keyword">int</span> b) &#123;</span><br><span class="line">  a = <span class="number">10000</span>; <span class="comment">//这里会报错，</span></span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"%d %d\n"</span>, a, b);</span><br><span class="line">&#125;;</span><br><span class="line">myBlock(<span class="number">110</span>); <span class="comment">//调用Block</span></span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints: 100 110"</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <ul>
 <li>Block 能读取变量的原理是 <code>copy</code>了一份变量的值,也有说是Block将外部变量以<code>常量</code>的形式存进去。所以在 Block 定义之后修改变量的值，再调用 Block，值依旧是修改前的。换句话说，定义好 Block 之后，修改变量值对 Block 无效。</li>
 </ul>
