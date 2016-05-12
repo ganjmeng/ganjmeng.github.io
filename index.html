@@ -158,7 +158,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                5
+                6
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -188,6 +188,133 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-untitled-1463040521846" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/05/12/untitled-1463040521846/">Block中级进阶（中）——Block实际应用</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/12/untitled-1463040521846/">
+            <time datetime="2016-05-12T08:08:41.000Z" itemprop="datePublished">2016-05-12</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/iOS开发/Block/">Block</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Block/">Block</a>, <a class="tag-link" href="/tags/iOS开发/">iOS开发</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p><img src="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/55643636.jpg" alt=""></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Block确实很简洁，很方便，特别适合处理较为单一的回调，Block可以省去构建复杂的代理委托关系，快速实现回调的功能，但是有利也有弊，使用Block的适合时常也容易出现一些问题，例如最典型的循环引用，而这些问题也容易被大家所忽视，这篇我会用一个例子引出这一系列的问题</code></p>
+<h2 id="Block的的应用"><a href="#Block的的应用" class="headerlink" title="Block的的应用"></a>Block的的应用</h2><ul>
+<li><strong>前面我已经介绍了Block的一些<code>简单</code>的用法，但是在<code>实际开发中</code>，我们并不那样去使用它，一半来说Block大多用于<code>对象与对象之间的通信</code></strong></li>
+</ul>
+<h3 id="BlockButton的封装"><a href="#BlockButton的封装" class="headerlink" title="BlockButton的封装"></a>BlockButton的封装</h3><ul>
+<li><strong>下面我就举个栗子：我们来自定义一个Block按钮，以便省去添加事件的繁琐操作</strong><blockquote>
+<p>1.首先我们创建一个继承于<code>UIButto</code>的<code>Class</code> 叫做 <code>BlcokButton</code><br>2.定义好Block类型，创建Block对象</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  BlockButton.h</span></span><br><span class="line"><span class="comment">//  blockDemo</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by GANMENG on 16/5/12.</span></span><br><span class="line"><span class="comment">//  Copyright © 2016年 BrightOil. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义Block类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span>(^ActionBlock)(<span class="built_in">UIButton</span> *);;</span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BlockButton</span> : <span class="title">UIButton</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个Block对象，block创建后内存是分配在栈上的，调用copy方法，会将block从栈上移到堆上。当block声明为全局变量时，我们应该调用block的copy方法。</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) ActionBlock actionBlock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
+            <p class="article-more-link">
+                <a href="/2016/05/12/untitled-1463040521846/#more">查看更多</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://ganmmeng.cn/2016/05/12/untitled-1463040521846/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://ganmmeng.cn/2016/05/12/untitled-1463040521846/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-block-2" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -228,7 +355,7 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p><img src="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/38326275.jpg" alt=""></p>
+            <p><p><img src="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/7378074.jpg" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新</code></p>
 <h2 id="Block和变量"><a href="#Block和变量" class="headerlink" title="Block和变量"></a>Block和变量</h2><ul>
 <li><strong>变量按作用域又分有全局变量和局部变量</strong></li>
@@ -353,7 +480,7 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p><img src="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/2759230.jpg" alt=""></p>
+            <p><p><img src="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/7378074.jpg" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新</code></p>
 <h2 id="什么是Block"><a href="#什么是Block" class="headerlink" title="什么是Block"></a>什么是Block</h2><ul>
 <li>Block是iOS4之后新增的一种语法结构，也称之为“闭包（closure）”</li>
@@ -689,123 +816,9 @@ var _hmt = _hmt || [];
 
 
 
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/04/29/hello-world/">Hello World</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/04/29/hello-world/">
-            <time datetime="2016-04-29T04:39:04.000Z" itemprop="datePublished">2016-04-29</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/ALL/">ALL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/杂/">杂</a>
-    </div>
-
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a><br></p>
-            <p class="article-more-link">
-                <a href="/2016/04/29/hello-world/#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <div class="jiathis_style">
-    <span class="jiathis_txt">分享到：</span>
-    <a class="jiathis_button_qzone">QQ空间</a>
-    <a class="jiathis_button_tsina">新浪微博</a>
-    <a class="jiathis_button_tqq">腾讯微博</a>
-    <a class="jiathis_button_weixin">微信</a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-    <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<style>
-    .jiathis_style div:first-child:not(.jiadiv_01) {
-        width: auto !important;
-        border: none !important;
-    }
-    .jiathis_style .jiadiv_01 {
-        margin: 10px 0;
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .jiathis_style .jiadiv_01 div:first-child {
-        display: none;
-    }
-    .jiathis_style .jiadiv_02 {
-        padding: 7px 0 !important;
-    }
-    .jiathis_style .jiadiv_02 .jiatitle {
-        width: 85px;
-        border: none;
-        height: auto;
-        margin: 3px 10px;
-        padding: 6px 10px;
-        border-radius: 4px;
-    }
-    .jiathis_style .jiadiv_02 .jiatitle:hover {
-        border: none;
-    }
-    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
-        margin-left: 0;
-    }
-    .jiathis_style .jtico:hover {
-        opacity: 1;
-    }
-    .jiathis_style .ckepopBottom,
-    .jiathis_style .centerBottom {
-        width: auto !important;
-        padding: 5px;
-        background: #f7f7f7;
-    }
-</style>
-
-
-
-</div>
-
-            
-    
-        <a href="http://ganmmeng.cn/2016/04/29/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://ganmmeng.cn/2016/04/29/hello-world/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
+    <nav id="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+    </nav>
 </section>
             
                 <aside id="sidebar">
@@ -819,10 +832,29 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/05/12/untitled-1463040521846/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/55643636.jpg)" alt="Block中级进阶（中）——Block实际应用" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/iOS开发/Block/">Block</a></p>
+                            <p class="item-title"><a href="/2016/05/12/untitled-1463040521846/" class="title">Block中级进阶（中）——Block实际应用</a></p>
+                            <p class="item-date"><time datetime="2016-05-12T08:08:41.000Z" itemprop="datePublished">2016-05-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/05/11/block-2/" class="thumbnail">
     
     
-        <span style="background-image:url(http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/38326275.jpg)" alt="Block中级进阶（上）" class="thumbnail-image"></span>
+        <span style="background-image:url(http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/7378074.jpg)" alt="Block中级进阶（上）" class="thumbnail-image"></span>
     
 </a>
 
@@ -841,7 +873,7 @@ var _hmt = _hmt || [];
                             <a href="/2016/05/09/Block-1/" class="thumbnail">
     
     
-        <span style="background-image:url(http://7xtu7q.com1.z0.glb.clouddn.com/16-5-11/2759230.jpg)" alt="Block 初识" class="thumbnail-image"></span>
+        <span style="background-image:url(http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/7378074.jpg)" alt="Block 初识" class="thumbnail-image"></span>
     
 </a>
 
@@ -892,25 +924,6 @@ var _hmt = _hmt || [];
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/04/29/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/ALL/">ALL</a></p>
-                            <p class="item-title"><a href="/2016/04/29/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2016-04-29T04:39:04.000Z" itemprop="datePublished">2016-04-29</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -920,7 +933,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ALL/">ALL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/Block/">Block</a><span class="category-list-count">2</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ALL/">ALL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/Block/">Block</a><span class="category-list-count">3</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -929,7 +942,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -938,7 +951,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Block/">Block</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Block/">Block</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -947,7 +960,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Block/" style="font-size: 20px;">Block</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/杂/" style="font-size: 20px;">杂</a>
+            <a href="/tags/Block/" style="font-size: 20px;">Block</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/杂/" style="font-size: 15px;">杂</a>
         </div>
     </div>
 

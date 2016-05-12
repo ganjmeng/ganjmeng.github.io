@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Block中级进阶（中）——Block实际应用 | 感觉萌的Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="前言Block确实很简洁，很方便，特别适合处理较为单一的回调，Block可以省去构建复杂的代理委托关系，快速实现回调的功能，但是有利也有弊，使用Block的适合时常也容易出现一些问题，例如最典型的循环引用，而这些问题也容易被大家所忽视，这篇我会用一个例子引出这一系列的问题
+Block的的应用
+前面我已经介绍了Block的一些简单的用法，但是在实际开发中，我们并不那样去使用它，一半来说Block大">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Block中级进阶（中）——Block实际应用">
+<meta property="og:url" content="http://ganmmeng.cn/2016/05/12/untitled-1463040521846/index.html">
+<meta property="og:site_name" content="感觉萌的Blog">
+<meta property="og:description" content="前言Block确实很简洁，很方便，特别适合处理较为单一的回调，Block可以省去构建复杂的代理委托关系，快速实现回调的功能，但是有利也有弊，使用Block的适合时常也容易出现一些问题，例如最典型的循环引用，而这些问题也容易被大家所忽视，这篇我会用一个例子引出这一系列的问题
+Block的的应用
+前面我已经介绍了Block的一些简单的用法，但是在实际开发中，我们并不那样去使用它，一半来说Block大">
+<meta property="og:image" content="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/55643636.jpg">
+<meta property="og:updated_time" content="2016-05-12T08:15:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Block中级进阶（中）——Block实际应用">
+<meta name="twitter:description" content="前言Block确实很简洁，很方便，特别适合处理较为单一的回调，Block可以省去构建复杂的代理委托关系，快速实现回调的功能，但是有利也有弊，使用Block的适合时常也容易出现一些问题，例如最典型的循环引用，而这些问题也容易被大家所忽视，这篇我会用一个例子引出这一系列的问题
+Block的的应用
+前面我已经介绍了Block的一些简单的用法，但是在实际开发中，我们并不那样去使用它，一半来说Block大">
+<meta name="twitter:image" content="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/55643636.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.jpg" />
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?b7aa03de7d5910f9d2ed350b489f7a3e";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+</head>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">感觉萌的Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="https://github.com/ganjmeng/">Github</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/ganmeng.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="https://github.com/ganjmeng/">Github</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/ganmeng.jpg" />
+            <h2 id="name">感觉萌</h2>
+            <h3 id="title">iOS Developer &amp; Designer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>ShenZhen, China</span>
+            <a id="follow" target="_blank" href="https://github.com/ganjmeng/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                6
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                5
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    <td><a href="https://github.com/ganjmeng/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+                    
+                    <td><a href="http://weibo.com/ganmeng" target="_blank" title="weibo"><i class="fa fa-weibo"></i></a></td>
+                    
+                    <td><a href="https://www.facebook.com/profile.php?id=100009906603284" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    
+                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-untitled-1463040521846" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Block中级进阶（中）——Block实际应用
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/12/untitled-1463040521846/">
+            <time datetime="2016-05-12T08:08:41.000Z" itemprop="datePublished">2016-05-12</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/iOS开发/Block/">Block</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Block/">Block</a>, <a class="tag-link" href="/tags/iOS开发/">iOS开发</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Block的的应用"><span class="toc-number">2.</span> <span class="toc-text">Block的的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BlockButton的封装"><span class="toc-number">2.1.</span> <span class="toc-text">BlockButton的封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BlockButton的优化"><span class="toc-number">2.2.</span> <span class="toc-text">BlockButton的优化</span></a></li></ol></li></ol>
+                </div>
+            
+            <p><img src="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/55643636.jpg" alt=""></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Block确实很简洁，很方便，特别适合处理较为单一的回调，Block可以省去构建复杂的代理委托关系，快速实现回调的功能，但是有利也有弊，使用Block的适合时常也容易出现一些问题，例如最典型的循环引用，而这些问题也容易被大家所忽视，这篇我会用一个例子引出这一系列的问题</code></p>
+<h2 id="Block的的应用"><a href="#Block的的应用" class="headerlink" title="Block的的应用"></a>Block的的应用</h2><ul>
+<li><strong>前面我已经介绍了Block的一些<code>简单</code>的用法，但是在<code>实际开发中</code>，我们并不那样去使用它，一半来说Block大多用于<code>对象与对象之间的通信</code></strong></li>
+</ul>
+<h3 id="BlockButton的封装"><a href="#BlockButton的封装" class="headerlink" title="BlockButton的封装"></a>BlockButton的封装</h3><ul>
+<li><strong>下面我就举个栗子：我们来自定义一个Block按钮，以便省去添加事件的繁琐操作</strong><blockquote>
+<p>1.首先我们创建一个继承于<code>UIButto</code>的<code>Class</code> 叫做 <code>BlcokButton</code><br>2.定义好Block类型，创建Block对象</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  BlockButton.h</span></span><br><span class="line"><span class="comment">//  blockDemo</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by GANMENG on 16/5/12.</span></span><br><span class="line"><span class="comment">//  Copyright © 2016年 BrightOil. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义Block类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span>(^ActionBlock)(<span class="built_in">UIButton</span> *);;</span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BlockButton</span> : <span class="title">UIButton</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个Block对象，block创建后内存是分配在栈上的，调用copy方法，会将block从栈上移到堆上。当block声明为全局变量时，我们应该调用block的copy方法。</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) ActionBlock actionBlock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<blockquote>
+<p>在.m文件中给Block<code>添加事件</code>，并且通过<code>ActionBlock回调</code></p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"BlockButton.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BlockButton</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)initWithFrame:(<span class="built_in">CGRect</span>)frame</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frame];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="comment">//给button添加事件</span></span><br><span class="line">        [<span class="keyword">self</span> addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(action:) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark -</span></span><br><span class="line"><span class="meta">#pragma mark - Action</span></span><br><span class="line">- (<span class="keyword">void</span>)action:(<span class="built_in">UIButton</span> *)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//这里一定要判断Block是否为有值的，不然会造成野指针异常。就像是用代理对象回调的时候也要判断delegate 是否有值并且 delegate是否响应了协议里的方法。p.s. 要养成好的编码习惯</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.actionBlock) &#123;</span><br><span class="line">        <span class="keyword">self</span>.actionBlock(sender);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>就这两个步骤，我们的BlockButton 就封装完了，我们只需要到ViewController中去使用就可以了</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"BlockButton.h"</span></span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    BlockButton *blockBtn = [[BlockButton alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">35</span>)];</span><br><span class="line">    [blockBtn setBackgroundColor:[<span class="built_in">UIColor</span> redColor]];</span><br><span class="line">    blockBtn.actionBlock = ^(<span class="built_in">UIButton</span> *sender)&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"点击了BlockButton"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:blockBtn];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints: blockDemo[6107:1144064] 点击了BlockButton"</span></span><br></pre></td></tr></table></figure>
+<h3 id="BlockButton的优化"><a href="#BlockButton的优化" class="headerlink" title="BlockButton的优化"></a>BlockButton的优化</h3><ul>
+<li><strong>写到这里，有些同学可能会有疑问了，<code>BlockButton</code>只能支持<code>TouchUpInside</code>一种事件类型吗? 难道如果其他事件也想用Block来实现回调还要定义那么多不同的BlockButton吗？</strong><blockquote>
+<p>其实我们只需要稍微修改一下上面的代码就可以让<code>BlockButton</code>可以<code>处理各种事件类型</code><br>前面有提到过，Block是一个iOS中的<code>对象类型</code>，它可以在<code>方法</code>中作为<code>参数传递</code></p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义Block类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span>(^ActionBlock)(<span class="built_in">UIButton</span> *sender);;</span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BlockButton</span> : <span class="title">UIButton</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//新增的方法，可以传递事件，和Block</span></span><br><span class="line">- (<span class="keyword">void</span>)gm_addActionForControlEvents:(<span class="built_in">UIControlEvents</span>)controlEvents callBackWithActionBlock:(ActionBlock)actionBlock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>实现这个方法，给BlockButton所持有的actionBlock赋值，添加事件，block回调</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"BlockButton.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BlockButton</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个Block对象，block创建后内存是分配在栈上的，调用copy方法，会将block从栈上移到堆上。当block声明为全局变量时，我们应该调用block的copy方法。</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) ActionBlock actionBlock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BlockButton</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark -</span></span><br><span class="line"><span class="meta">#pragma mark - PublicMethod</span></span><br><span class="line">- (<span class="keyword">void</span>)gm_addActionForControlEvents:(<span class="built_in">UIControlEvents</span>)controlEvents callBackWithActionBlock:(ActionBlock)actionBlock&#123;</span><br><span class="line">    <span class="comment">//将公用方法传递过来的block对象赋值给</span></span><br><span class="line">    <span class="keyword">self</span>.actionBlock = actionBlock;</span><br><span class="line">    [<span class="keyword">self</span> addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(action:) forControlEvents:controlEvents];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark -</span></span><br><span class="line"><span class="meta">#pragma mark - Action</span></span><br><span class="line">- (<span class="keyword">void</span>)action:(<span class="built_in">UIButton</span> *)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//这里一定要判断Block是否为有值的，不然会造成野指针异常。就像是用代理对象回调的时候也要判断delegate 是否有值并且 delegate是否响应了协议里的方法。p.s. 要养成好的编码习惯</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.actionBlock) &#123;</span><br><span class="line">        <span class="keyword">self</span>.actionBlock(sender);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样我们的<code>blockButton</code>就可以处理各种不同的情况了，而且代码也接近系统的<code>api</code>，用起来十分顺手！😊<br>在<code>ViewController</code>中来使用</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"BlockButton.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    BlockButton *blockBtn = [[BlockButton alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">35</span>)];</span><br><span class="line">    [blockBtn setBackgroundColor:[<span class="built_in">UIColor</span> redColor]];</span><br><span class="line">    </span><br><span class="line">    [blockBtn gm_addActionForControlEvents:<span class="built_in">UIControlEventTouchUpInside</span> callBackWithActionBlock:^(<span class="built_in">UIButton</span> *sender) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"点击了BlockButton"</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:blockBtn];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*---------输出结果---------*/</span></span><br><span class="line"><span class="string">@"prints: blockDemo[6107:1144064] 点击了BlockButton"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>到这里BlockButton也差不多封装完了，当然你也可以通过使用分类来实现。<br>p.s. 这一篇简单的介绍了Block在实际开发中的回调用法，下一篇我会详细讲解循环引用。❤️❤️❤️❤️</p>
+</blockquote>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://ganmmeng.cn/2016/05/12/untitled-1463040521846/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://ganmmeng.cn/2016/05/12/untitled-1463040521846/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/05/11/block-2/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Block中级进阶（上）</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/05/12/untitled-1463040521846/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/55643636.jpg)" alt="Block中级进阶（中）——Block实际应用" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/iOS开发/Block/">Block</a></p>
+                            <p class="item-title"><a href="/2016/05/12/untitled-1463040521846/" class="title">Block中级进阶（中）——Block实际应用</a></p>
+                            <p class="item-date"><time datetime="2016-05-12T08:08:41.000Z" itemprop="datePublished">2016-05-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/05/11/block-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/7378074.jpg)" alt="Block中级进阶（上）" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/iOS开发/Block/">Block</a></p>
+                            <p class="item-title"><a href="/2016/05/11/block-2/" class="title">Block中级进阶（上）</a></p>
+                            <p class="item-date"><time datetime="2016-05-11T01:48:32.000Z" itemprop="datePublished">2016-05-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/05/09/Block-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/7378074.jpg)" alt="Block 初识" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/iOS开发/Block/">Block</a></p>
+                            <p class="item-title"><a href="/2016/05/09/Block-1/" class="title">Block 初识</a></p>
+                            <p class="item-date"><time datetime="2016-05-09T01:40:41.000Z" itemprop="datePublished">2016-05-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/05/06/untitled-1462496926972/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/blog/">blog</a></p>
+                            <p class="item-title"><a href="/2016/05/06/untitled-1462496926972/" class="title">建站小记</a></p>
+                            <p class="item-date"><time datetime="2016-05-06T01:08:46.000Z" itemprop="datePublished">2016-05-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/04/29/untitled-1461912646136/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/hexo/">hexo</a></p>
+                            <p class="item-title"><a href="/2016/04/29/untitled-1461912646136/" class="title">hexo-hey</a></p>
+                            <p class="item-date"><time datetime="2016-04-29T06:50:46.000Z" itemprop="datePublished">2016-04-29</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ALL/">ALL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/Block/">Block</a><span class="category-list-count">3</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Block/">Block</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Block/" style="font-size: 20px;">Block</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/杂/" style="font-size: 15px;">杂</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://weibo.com/ganjmeng">My Weibo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 Gan Meng<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'ganmeng';
+    
+    
+    var disqus_url = 'http://ganmmeng.cn/2016/05/12/untitled-1463040521846/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
