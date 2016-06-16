@@ -312,6 +312,173 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/16/untitled-1466044983663/" itemprop="url">
+                  Block 高级进阶
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-16T10:43:03+08:00" content="2016-06-16">
+              2016-06-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/Block/" itemprop="url" rel="index">
+                    <span itemprop="name">Block</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/16/untitled-1466044983663/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/16/untitled-1466044983663/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/16/untitled-1466044983663/" class="leancloud_visitors" data-flag-title="Block 高级进阶">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/7638807.jpg" alt=""></p>
+<blockquote>
+<p>Block学习笔记</p>
+</blockquote>
+<h2 id="Block的类型与内存管理"><a href="#Block的类型与内存管理" class="headerlink" title="Block的类型与内存管理"></a>Block的类型与内存管理</h2><hr>
+<ul>
+<li>根据Block在内存中的位置分为三种类型<ul>
+<li><code>NSGlobalBlock</code>：类似函数，位于text段，全局的静态 block，不会访问任何外部变量</li>
+<li><code>NSStackBlock</code>：保存在栈中的 block，当函数返回时会被销毁</li>
+<li><code>NSMallocBlock</code>：保存在堆中的 block，当引用计数为 0 时会被销毁。</li>
+</ul>
+</li>
+</ul>
+<p>在MRC和ARC下还是有区别的</p>
+<h3 id="MRC-下的-Block的三种类型"><a href="#MRC-下的-Block的三种类型" class="headerlink" title="MRC 下的 Block的三种类型"></a>MRC 下的 Block的三种类型</h3><hr>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*------------在MRC下-----------------*/</span></span><br><span class="line">    <span class="keyword">typedef</span> test (^MyBlock)(<span class="keyword">int</span>, <span class="keyword">int</span>);</span><br><span class="line"></span><br><span class="line">    MyBlock block1 = ^ test (<span class="keyword">int</span> a, <span class="keyword">int</span> b) &#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"block1 = %@"</span>, block1);</span><br><span class="line">    <span class="comment">// block1 = &lt;__NSGlobalBlock__: 0x86f0&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">100</span>;</span><br><span class="line">    MyBlock block2 = ^ test (<span class="keyword">int</span> a, <span class="keyword">int</span> b) &#123;</span><br><span class="line">        <span class="keyword">return</span> temp + a + b;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"block2 = %@"</span>, block2);</span><br><span class="line">    <span class="comment">// block2 = &lt;__NSStackBlock__: 0xddf24a1&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//copy</span></span><br><span class="line">    MyBlock block3 = [[block2 <span class="keyword">copy</span>] autorelease];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"block3 = %@"</span>, block3);</span><br><span class="line">    <span class="comment">// block3 = &lt;__NSMallocBlock__: 0x75425a0&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>block1</code>没有使用任何<code>外部变量</code>，因此存储在 <code>代码区</code>，编译器给其的类型为<code>NSGlobalBlock</code><br><code>block2</code>使用到了局部变量，在<code>定义</code>（注意是定义，不是运行）block2时，局部变量<code>temp</code>当前值被copy到栈上，作为<code>常量</code>供Block使用(之前有提过，所以在block中不可以随意修改外面定义的局部变量)。编译器给其类型为<code>NSStackBlock</code><br><code>block3</code> 经过拷贝，局部变量 <code>temp</code> 的值被 copy 到堆中，编译器给其类型为<code>NSMallocBlock</code> 总结说来，<code>block 的类型</code>取决于内部使用的变量在哪。</p>
+</blockquote>
+<h3 id="ARC-下的-Block"><a href="#ARC-下的-Block" class="headerlink" title="ARC 下的 Block"></a>ARC 下的 Block</h3><hr>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*------------在ARC下-----------------*/</span></span><br><span class="line"><span class="keyword">typedef</span> test (^MyBlock)(<span class="keyword">int</span>, <span class="keyword">int</span>);</span><br><span class="line">MyBlock block1 = ^ test (<span class="keyword">int</span> a, <span class="keyword">int</span> b) &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"block1 = %@"</span>, block1);</span><br><span class="line"><span class="comment">// block1 = &lt;__NSGlobalBlock__: 0x10010030&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> temp = <span class="number">100</span>;</span><br><span class="line">MyBlock block2 = ^ test (<span class="keyword">int</span> a, <span class="keyword">int</span> b) &#123;</span><br><span class="line">  <span class="keyword">return</span> temp + a + b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"block2 = %@"</span>, block2);</span><br><span class="line"><span class="comment">// block2 = &lt;__NSMallocBlock__: 0x100102df0&gt;</span></span><br><span class="line"></span><br><span class="line">__block <span class="keyword">int</span> sum = <span class="number">100</span>;</span><br><span class="line">MyBlock block3 = ^ test (<span class="keyword">int</span> a, <span class="keyword">int</span> b) &#123;</span><br><span class="line">  <span class="keyword">return</span> sum + a + b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"block3 = %@"</span>, block3);</span><br><span class="line"><span class="comment">// block3 = &lt;__NSMallocBlock__: 0x100306110&gt;</span></span><br></pre></td></tr></table></figure>
+<p>因为 <code>ARC</code> 下，编译器帮我们管理内存，所以只要<code>内部调用了外部变量</code>，编译器都会 <code>copy</code>一份变量到<code>堆</code>中，并且引用计数增加。 所以<code>block2</code>和<code>block3</code>的类型都是<code>NSMallocBlock</code>。其余和 <code>MRC</code>一样。</p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><blockquote>
+<p><strong><code>Tips</code></strong>:<br><strong>以下情况，block 会拷贝到堆：</strong><br><code>*</code>当 <code>block</code> 调用 <code>copy</code>方法时，如果<code>block 在栈上</code>，会被拷贝到<code>堆</code>上；<br><code>*</code>当 <code>block</code> 作为<code>函数返回值返回</code>时，编译器自动调用<code>copy</code>方法；<br><code>*</code>当 block 被赋值给<code>_strong id</code>类型的对象或<code>block 的成员变量</code>时，编译器自动将 block 作为<code>Block_copy</code>函数，效果等同于 block 直接调用<code>copy</code>方法；<br><code>*</code>当<code>block</code>作为参数被传入方法名带有<code>usingBlock</code> 的<code>Cocoa Framework</code>方法或 <code>GCD</code>的<code>API</code> 时。这些方法会在内部对传递进来的 block 调用<code>copy</code>或<code>_Block_copy</code>进行拷贝;</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/16/untitled-1466044983663/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/14/untitled-1465894965705/" itemprop="url">
                   Block中级进阶（下）—— 循环引用
                 </a>
@@ -908,167 +1075,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/09/Block-1/" itemprop="url">
-                  Block 初识
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-09T09:40:41+08:00" content="2016-05-09">
-              2016-05-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/Block/" itemprop="url" rel="index">
-                    <span itemprop="name">Block</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/09/Block-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/05/09/Block-1/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/09/Block-1/" class="leancloud_visitors" data-flag-title="Block 初识">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://7xtu7q.com1.z0.glb.clouddn.com/16-5-12/7378074.jpg" alt=""></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>前段时间在公司iOS小组组织了技术分享会，由浅入深的剖析了Block，在这里记录下来，温故而知新</code></p>
-<h2 id="什么是Block"><a href="#什么是Block" class="headerlink" title="什么是Block"></a>什么是Block</h2><ul>
-<li>Block是iOS4之后新增的一种语法结构，也称之为“闭包（closure）”</li>
-<li>Block是iOS中一种比较特殊的<code>数据类型</code></li>
-<li>是一个能工作的代码单元，可以在<code>任何需要的时候</code>被执行</li>
-<li>本质是轻量级的<code>匿名函数</code>，可以作为其他函数的参数或者返回值。</li>
-<li><p>Block是苹果官方特别<code>推荐使用</code>的数据类型, 应用场景比较广泛</p>
-<ul>
-<li>动画</li>
-<li>多线程</li>
-<li>集合遍历</li>
-<li>网络请求回调</li>
-<li>新版的AlertController等等等…</li>
-</ul>
-<hr>
-<h2 id="Block的作用"><a href="#Block的作用" class="headerlink" title="Block的作用"></a>Block的作用</h2></li>
-<li><strong>用来保存某一段代码, 可以在<code>恰当的时间</code>再取出来<code>调用</code></strong></li>
-<li><strong>功能类似于<code>函数和方法</code></strong>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/09/Block-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1114,7 +1120,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
